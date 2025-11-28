@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../TodoForm/TodoForm.sass"
 
 export default function TodoForm({ onAdd }) {
     const [task, setTask] = useState('');
@@ -23,8 +24,9 @@ export default function TodoForm({ onAdd }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="todo-form" >
             <input
+                className="todo-form__input"
                 type="text"
                 placeholder="Task name"
                 value={task}
@@ -32,6 +34,7 @@ export default function TodoForm({ onAdd }) {
             />
     
             <select
+                className="todo-form__select"
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
             >
@@ -40,7 +43,7 @@ export default function TodoForm({ onAdd }) {
                 <option value="completed">Completed</option>
             </select>
     
-            <button type="submit">
+            <button type="submit" className="todo-form__button">
                 Add Todo
             </button>
         </form>
